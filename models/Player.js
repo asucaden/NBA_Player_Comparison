@@ -1,0 +1,40 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const PlayerSchema = new Schema({
+  Rk: Number,
+  Player: String,
+  Pos: String,
+  Age: Number,
+  Tm: String,
+  G: Number,
+  GS: Number,
+  MP: Number,
+  FG: Number,
+  FGA: Number,
+  'FG%': Number,
+  '3P': Number,
+  '3PA': Number,
+  '3P%': Number,
+  '2P': Number,
+  '2PA': Number,
+  '2P%': Number,
+  'eFG%': Number,
+  FT: Number,
+  FTA: Number,
+  FT: Number,
+  ORB: Number,
+  DRB: Number,
+  TRB: Number,
+  AST: Number,
+  STL: Number,
+  BLK: Number,
+  TOV: Number,
+  PF: Number,
+  PTS: Number,
+  ASG: Number,
+  FAME_SCORE: Number,
+  '3StatTot': Number,
+});
+
+module.exports = Player = mongoose.model('players', PlayerSchema);
