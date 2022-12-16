@@ -51,7 +51,6 @@ const App = () => {
             path='/dashboard'
             element={<PrivateRoute component={Dashboard} />}
           />
-          />
         </Routes>
       </Router>
     </Provider>

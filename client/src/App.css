@@ -49,12 +49,43 @@ img {
 
 /* Utilities */
 .container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 1100px;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 18rem;
   margin-bottom: 3rem;
+}
+
+.container-centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.638);
+  border: solid rgb(0, 0, 0);
+  border-width: 1px;
+}
+
+.container-dashboard {
+  position: relative;
+  background: url('./img/bballbackground.jpg') no-repeat center center/cover;
+  height: 120vh;
+}
+
+
+.landing {
+  position: relative;
+  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  height: 100vh;
 }
 
 /* Text Styles*/

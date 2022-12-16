@@ -8,22 +8,23 @@ const PlayerComparison = require('../../models/PlayerComparison');
 const { check, validationResult } = require('express-validator');
 const { selectFields } = require('express-validator/src/select-fields');
 
+// These constants calibrate how 2 players are compared
+const TOTSPREAD = 2; // Controls how similar the 2 players pts+asts+rebs must be.  Lower means closer stats.
+const FAMEDIFF = 1; // Controls how different the 2 players fame can be.  Lower means more similar fame levels is allowed
+
 //// STAT RANGES
 // PTS Range- 10 - 30.6
-const PTSMIN = 10;
-const PTSMAX = 30.6;
+const PTSMIN = 12;
+const PTSMAX = 28;
 // AST Range- .8 - 10.8
-const ASTMIN = 0.8;
-const ASTMAX = 10.8;
+const ASTMIN = 2;
+const ASTMAX = 9;
 // TRB Range- 1.6 - 14.7
-const TRBMIN = 1.6;
-const TRBMAX = 14.7;
+const TRBMIN = 3;
+const TRBMAX = 10;
 // StatTot Range- 12.7 - 48.8
 const STATTOTMIN = 12.7;
 const STATTOTMAX = 48.8;
-
-const TOTSPREAD = 3;
-const FAMEDIFF = 2;
 
 // @route   GET api/playerComparison
 // @desc    Return a potential player pair
@@ -40,16 +41,13 @@ router.get('/', auth, async (req, res) => {
     var checkAgain = true;
     while (checkAgain) {
       i++;
-      const ptsTarget =
-        Math.random() * 0.92 * (PTSMAX - PTSMIN) + 1.08 * PTSMIN;
-      const astTarget =
-        Math.random() * 0.92 * (ASTMAX - ASTMIN) + 1.08 * ASTMIN;
-      const trbTarget =
-        Math.random() * 0.92 * (TRBMAX - TRBMIN) + 1.08 * TRBMIN;
+      const ptsTarget = Math.random() * (PTSMAX - PTSMIN) + PTSMIN;
+      const astTarget = Math.random() * (ASTMAX - ASTMIN) + ASTMIN;
+      const trbTarget = Math.random() * (TRBMAX - TRBMIN) * TRBMIN;
       const totTarget = ptsTarget + astTarget + trbTarget;
-      const ptsSpread = ptsTarget / 7;
-      const astSpread = astTarget / 2;
-      const trbSpread = trbTarget / 2;
+      const ptsSpread = ptsTarget / 5;
+      const astSpread = astTarget / 3;
+      const trbSpread = trbTarget / 3;
 
       players = await Player.find({
         PTS: { $gte: ptsTarget - ptsSpread, $lte: ptsTarget + ptsSpread },
@@ -61,7 +59,7 @@ router.get('/', auth, async (req, res) => {
         },
       });
       if (players.length >= 2) {
-        for (let j = 0; j < players.length * 3; j++) {
+        for (let j = 0; j < Math.min(players.length ** 2, 100); j++) {
           let idx1 = Math.floor(Math.random() * players.length);
           let idx2 = Math.floor(Math.random() * players.length);
           const f1 = players[idx1].FAME_SCORE;

@@ -10,12 +10,14 @@ const Dashboard = ({ loadUser, auth: { user } }) => {
   }, [loadUser]);
 
   return (
-    <section className='container'>
-      <h1 className='large text-primary'>Player Comparer</h1>
-      <p className='lead'>
-        <i className='fas fa-user' /> Welcome {user && user.name}
-      </p>
-      {<PlayerReviewer />}
+    <section className='container-dashboard'>
+      <section className='container-centered'>
+        <h1 className='large text-primary'>Player Comparer</h1>
+        <p className='lead'>
+          <i className='fas fa-user' /> Welcome {user && user.name}
+        </p>
+        {<PlayerReviewer />}
+      </section>
     </section>
   );
 };
