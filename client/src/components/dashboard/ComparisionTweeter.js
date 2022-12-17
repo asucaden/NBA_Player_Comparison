@@ -8,6 +8,7 @@ import { loadPlayers } from '../../actions/playerReview';
 const ComparisonTweeter = ({ tweetComparison, loadPlayers, players }) => {
   return (
     <div>
+      <br />
       <button
         className='btn btn-success'
         onClick={() => tweetComparison(players)}

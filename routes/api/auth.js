@@ -21,7 +21,7 @@ router.get('/', auth, async (req, res) => {
 
 module.exports = router;
 
-// @route   POST api/users
+// @route   POST api/auth
 // @desc    Authenticate user & get token
 // @access  Public
 router.post(

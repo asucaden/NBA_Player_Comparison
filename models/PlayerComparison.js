@@ -3,16 +3,18 @@ const Schema = mongoose.Schema;
 
 const playerComparisonSchema = new Schema({
   playerA: {
-    Player: String,
-    PTS: Number,
-    AST: Number,
-    TRB: Number,
+    cm_name: String,
+    pts: Number,
+    ast: Number,
+    reb: Number,
+    cm_ts_pct: Number,
   },
   playerB: {
-    Player: String,
-    PTS: Number,
-    AST: Number,
-    TRB: Number,
+    cm_name: String,
+    pts: Number,
+    ast: Number,
+    reb: Number,
+    cm_ts_pct: Number,
   },
 });
 

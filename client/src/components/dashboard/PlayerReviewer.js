@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-//import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadPlayers } from '../../actions/playerReview';
@@ -22,27 +21,28 @@ const PlayerReviewer = ({
         <>
           <div className='float-container'>
             <div classname='float-child'>
-              Player 1 stats:
               <br />
-              {sleeperPlayer.Player}
+              {sleeperPlayer.cm_name}
               <br />
-              PPG: {sleeperPlayer.PTS}
+              PPG: {sleeperPlayer.pts}
               <br />
-              RPG: {sleeperPlayer.TRB}
+              RPG: {sleeperPlayer.reb}
               <br />
-              APG: {sleeperPlayer.AST}
+              APG: {sleeperPlayer.ast}
+              <br />
+              True Shooting: {Math.round(sleeperPlayer.cm_ts_pct * 1000) / 10}%
             </div>
             <div classname='float-child'>
-              Player 2 stats:
               <br />
-              {famousPlayer.Player}
+              {famousPlayer.cm_name}
               <br />
-              PPG: {famousPlayer.PTS}
+              PPG: {famousPlayer.pts}
               <br />
-              RPG: {famousPlayer.TRB}
+              RPG: {famousPlayer.reb}
               <br />
-              APG:
-              {famousPlayer.AST}
+              APG: {famousPlayer.ast}
+              <br />
+              True Shooting: {Math.round(famousPlayer.cm_ts_pct * 1000) / 10}%
             </div>
           </div>
           <ComparisionTweeter />

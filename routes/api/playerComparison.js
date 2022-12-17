@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 const { selectFields } = require('express-validator/src/select-fields');
 
 // These constants calibrate how 2 players are compared
-const TOTSPREAD = 2; // Controls how similar the 2 players pts+asts+rebs must be.  Lower means closer stats.
+const TOTSPREAD = 5; // Controls how similar the 2 players pts+asts+rebs must be.  Lower means players must be closer statisticly.
 const FAMEDIFF = 1; // Controls how different the 2 players fame can be.  Lower means more similar fame levels is allowed
 
 //// STAT RANGES
@@ -45,15 +45,15 @@ router.get('/', auth, async (req, res) => {
       const astTarget = Math.random() * (ASTMAX - ASTMIN) + ASTMIN;
       const trbTarget = Math.random() * (TRBMAX - TRBMIN) * TRBMIN;
       const totTarget = ptsTarget + astTarget + trbTarget;
-      const ptsSpread = ptsTarget / 5;
+      const ptsSpread = ptsTarget / 4;
       const astSpread = astTarget / 3;
       const trbSpread = trbTarget / 3;
 
       players = await Player.find({
-        PTS: { $gte: ptsTarget - ptsSpread, $lte: ptsTarget + ptsSpread },
-        AST: { $gte: astTarget - astSpread, $lte: astTarget + astSpread },
-        TRB: { $gte: trbTarget - trbSpread, $lte: trbTarget + trbSpread },
-        '3StatTot': {
+        pts: { $gte: ptsTarget - ptsSpread, $lte: ptsTarget + ptsSpread },
+        ast: { $gte: astTarget - astSpread, $lte: astTarget + astSpread },
+        reb: { $gte: trbTarget - trbSpread, $lte: trbTarget + trbSpread },
+        cm_3_stat_tot: {
           $gte: totTarget - TOTSPREAD,
           $lte: totTarget + TOTSPREAD,
         },
@@ -62,8 +62,8 @@ router.get('/', auth, async (req, res) => {
         for (let j = 0; j < Math.min(players.length ** 2, 100); j++) {
           let idx1 = Math.floor(Math.random() * players.length);
           let idx2 = Math.floor(Math.random() * players.length);
-          const f1 = players[idx1].FAME_SCORE;
-          const f2 = players[idx2].FAME_SCORE;
+          const f1 = players[idx1].cm_fame;
+          const f2 = players[idx2].cm_fame;
           if (Math.abs(f1 - f2) > FAMEDIFF) {
             if (f1 > f2) {
               famousPlayer = players[idx1];
@@ -81,16 +81,18 @@ router.get('/', auth, async (req, res) => {
     console.log('Took' + i + 'tries');
     res.json({
       sleeperPlayer: {
-        Player: sleeperPlayer.Player,
-        PTS: sleeperPlayer.PTS,
-        AST: sleeperPlayer.AST,
-        TRB: sleeperPlayer.TRB,
+        cm_name: sleeperPlayer.cm_name,
+        pts: sleeperPlayer.pts,
+        ast: sleeperPlayer.ast,
+        reb: sleeperPlayer.reb,
+        cm_ts_pct: sleeperPlayer.cm_ts_pct,
       },
       famousPlayer: {
-        Player: famousPlayer.Player,
-        PTS: famousPlayer.PTS,
-        AST: famousPlayer.AST,
-        TRB: famousPlayer.TRB,
+        cm_name: famousPlayer.cm_name,
+        pts: famousPlayer.pts,
+        ast: famousPlayer.ast,
+        reb: famousPlayer.reb,
+        cm_ts_pct: famousPlayer.cm_ts_pct,
       },
       tryCount: i,
     });
