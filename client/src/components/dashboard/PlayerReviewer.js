@@ -24,25 +24,25 @@ const PlayerReviewer = ({
               <br />
               {sleeperPlayer.cm_name}
               <br />
-              PPG: {sleeperPlayer.pts}
+              {sleeperPlayer.pts} PTS
               <br />
-              RPG: {sleeperPlayer.reb}
+              {sleeperPlayer.reb} REB
               <br />
-              APG: {sleeperPlayer.ast}
+              {sleeperPlayer.ast} AST
               <br />
-              True Shooting: {Math.round(sleeperPlayer.cm_ts_pct * 1000) / 10}%
+              {sleeperPlayer.cm_ts_pct}% True Shooting
             </div>
             <div classname='float-child'>
               <br />
               {famousPlayer.cm_name}
               <br />
-              PPG: {famousPlayer.pts}
+              {famousPlayer.pts} PTS
               <br />
-              RPG: {famousPlayer.reb}
+              {famousPlayer.reb} REB
               <br />
-              APG: {famousPlayer.ast}
+              {famousPlayer.ast} AST
               <br />
-              True Shooting: {Math.round(famousPlayer.cm_ts_pct * 1000) / 10}%
+              {famousPlayer.cm_ts_pct}% True Shooting
             </div>
           </div>
           <ComparisionTweeter />

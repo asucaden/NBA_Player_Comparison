@@ -82,17 +82,17 @@ router.get('/', auth, async (req, res) => {
     res.json({
       sleeperPlayer: {
         cm_name: sleeperPlayer.cm_name,
-        pts: sleeperPlayer.pts,
-        ast: sleeperPlayer.ast,
-        reb: sleeperPlayer.reb,
-        cm_ts_pct: sleeperPlayer.cm_ts_pct,
+        pts: Math.round(sleeperPlayer.pts * 10) / 10,
+        ast: Math.round(sleeperPlayer.ast * 10) / 10,
+        reb: Math.round(sleeperPlayer.reb * 10) / 10,
+        cm_ts_pct: Math.round(sleeperPlayer.cm_ts_pct * 1000) / 10,
       },
       famousPlayer: {
         cm_name: famousPlayer.cm_name,
-        pts: famousPlayer.pts,
-        ast: famousPlayer.ast,
-        reb: famousPlayer.reb,
-        cm_ts_pct: famousPlayer.cm_ts_pct,
+        pts: Math.round(famousPlayer.pts * 10) / 10,
+        ast: Math.round(famousPlayer.ast * 10) / 10,
+        reb: Math.round(famousPlayer.reb * 10) / 10,
+        cm_ts_pct: Math.round(famousPlayer.cm_ts_pct * 1000) / 10,
       },
       tryCount: i,
     });
