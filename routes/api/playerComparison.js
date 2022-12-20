@@ -69,7 +69,7 @@ router.get('/', auth, async (req, res) => {
             Math.abs(p1.cm_fame - p2.cm_fame) > FAMEDIFF &&
             Math.abs(p1.cm_ts_pct - p2.cm_ts_pct) < TSSPREAD
           ) {
-            if (f1 > f2) {
+            if (p1.cm_fame > p2.cm_fame) {
               famousPlayer = players[idx1];
               sleeperPlayer = players[idx2];
             } else {

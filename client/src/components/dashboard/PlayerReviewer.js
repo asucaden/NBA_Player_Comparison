@@ -14,11 +14,11 @@ const PlayerReviewer = ({
 
   return (
     <>
-      <button className='btn btn-primary' onClick={() => loadPlayers()}>
-        Generate new player comparison
-      </button>
-      {sleeperPlayer && (
+      {sleeperPlayer.cm_name && (
         <>
+          <button className='btn btn-primary' onClick={() => loadPlayers()}>
+            Generate new player comparison
+          </button>
           <div className='float-container'>
             <div classname='float-child'>
               <br />
