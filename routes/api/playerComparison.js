@@ -11,6 +11,7 @@ const { selectFields } = require('express-validator/src/select-fields');
 // These constants calibrate how 2 players are compared
 const TOTSPREAD = 5; // Controls how similar the 2 players pts+asts+rebs must be.  Lower means players must be closer statisticly.
 const FAMEDIFF = 1; // Controls how different the 2 players fame can be.  Lower means more similar fame levels is allowed
+const TSSPREAD = 0.08; // Controls how different the 2 players TS% can be.
 
 //// STAT RANGES
 // PTS Range- 10 - 30.6
@@ -59,12 +60,15 @@ router.get('/', auth, async (req, res) => {
         },
       });
       if (players.length >= 2) {
-        for (let j = 0; j < Math.min(players.length ** 2, 100); j++) {
+        for (let j = 0; j < Math.min(players.length ** 3, 200); j++) {
           let idx1 = Math.floor(Math.random() * players.length);
           let idx2 = Math.floor(Math.random() * players.length);
-          const f1 = players[idx1].cm_fame;
-          const f2 = players[idx2].cm_fame;
-          if (Math.abs(f1 - f2) > FAMEDIFF) {
+          const p1 = players[idx1];
+          const p2 = players[idx2];
+          if (
+            Math.abs(p1.cm_fame - p2.cm_fame) > FAMEDIFF &&
+            Math.abs(p1.cm_ts_pct - p2.cm_ts_pct) < TSSPREAD
+          ) {
             if (f1 > f2) {
               famousPlayer = players[idx1];
               sleeperPlayer = players[idx2];
