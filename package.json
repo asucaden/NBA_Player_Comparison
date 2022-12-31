@@ -1,7 +1,7 @@
 {
-  "name": "devconnector",
+  "name": "nba_comparer",
   "version": "1.0.0",
-  "description": "Social network for developers",
+  "description": "Compare NBA Players",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Caden Midkiff",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.8",
