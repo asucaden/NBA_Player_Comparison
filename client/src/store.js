@@ -1,5 +1,8 @@
-import { legacy_createStore as createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import {
+  legacy_createStore as createStore,
+  applyMiddleware,
+  compose,
+} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import setAuthToken from './utils/setAuthToken';
@@ -11,7 +14,7 @@ const middleware = [thunk];
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  compose(applyMiddleware(...middleware))
 );
 
 let currentState = store.getState();
