@@ -1,36 +1,26 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { loadUser } from '../../actions/auth';
+import React from 'react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import PlayerReviewer from './PlayerReviewer';
 
-const Dashboard = ({ loadUser, auth: { user } }) => {
-  useEffect(() => {
-    loadUser();
-  }, [loadUser]);
-
+const Dashboard = () => {
   return (
-    <section className='container-dashboard'>
-      <section className='container-centered'>
-        <h1 className='large text-primary'>Player Comparer</h1>
-        <p className='lead'>
-          <i className='fas fa-user' /> Welcome {user && user.name}
-        </p>
-        {<PlayerReviewer />}
+    <>
+      <section className='container-dashboard'>
+        <section className='container-centered'>
+          <h1 className='large text-primary'>Player Comparer</h1>
+          <PlayerReviewer />
+        </section>
+        <section className='container-tweet'>
+          <TwitterTimelineEmbed
+            sourceType='profile'
+            screenName='c_swish_stats'
+            noHeader='true'
+            options={{ height: 800, width: 350 }}
+          />
+        </section>
       </section>
-    </section>
+    </>
   );
 };
 
-Dashboard.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth,
-  players: state.PlayerReviewer,
-});
-
-export default connect(mapStateToProps, { loadUser })(Dashboard);
+export default Dashboard;

@@ -1,9 +1,4 @@
-import {
-  PLAYER_LOAD_SUCCESS,
-  PLAYER_LOAD_FAILURE,
-  PLAYER_REVIEW_SUCCESS,
-  PLAYER_REVIEW_FAILURE,
-} from '../actions/types';
+import { PLAYER_LOAD_SUCCESS, PLAYER_LOAD_FAILURE } from '../actions/types';
 
 const initialState = {
   sleeperPlayer: {},
@@ -15,7 +10,6 @@ export default function playerReview(state = initialState, action) {
 
   switch (type) {
     case PLAYER_LOAD_SUCCESS:
-    case PLAYER_REVIEW_SUCCESS:
       return {
         ...state,
         sleeperPlayer: payload.sleeperPlayer,
@@ -23,7 +17,6 @@ export default function playerReview(state = initialState, action) {
       };
 
     case PLAYER_LOAD_FAILURE:
-    case PLAYER_REVIEW_FAILURE:
       return { ...state, error: payload };
     default:
       return state;

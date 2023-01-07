@@ -1,6 +1,6 @@
 .float-container {
   display: flex;
-  gap: 70px;
+  gap: 90px;
 
 }
 
@@ -9,6 +9,14 @@
   float: left;
   padding: 20px;
   border: 2px solid red;
+}
+
+.tweet-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 20px solid red;
 }
 
 /* Global Styles */
@@ -28,7 +36,7 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
@@ -60,6 +68,7 @@ img {
   margin-bottom: 3rem;
 }
 
+/*
 .container-centered {
   position: absolute;
   top: 40%;
@@ -67,6 +76,7 @@ img {
   transform: translate(-50%, -50%);
   max-width: 1100px;
   margin: auto;
+  margin-top: 50px; 
   overflow: hidden;
   padding: 3rem;
   margin-bottom: 3rem;
@@ -74,18 +84,52 @@ img {
   border: solid rgb(0, 0, 0);
   border-width: 1px;
 }
+*/
 
+.container-dashboard {
+  height: 120vh;
+  background: url('./img/bballbackground.jpg') no-repeat center center/cover;
+  margin-top: 50px
+}
+
+.container-centered {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  max-width: 1000px;
+  max-height:1000px;
+  margin: auto;
+  margin-top: 80px; 
+  overflow: hidden;
+  padding: 4rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.638);
+  border: solid rgb(0, 0, 0);
+  border-width: 1px;
+}
+
+.container-tweet {
+  float: right; 
+  overflow: hidden;
+  padding: 1rem;
+  margin: 3rem;
+}
+
+/*
 .container-dashboard {
   position: relative;
   background: url('./img/bballbackground.jpg') no-repeat center center/cover;
-  height: 120vh;
+  height: 50vh;
+  margin-top: 50px
 }
-
+*/
 
 .landing {
   position: relative;
   background: url('./img/showcase.jpg') no-repeat center center/cover;
   height: 100vh;
+  margin-top: 40px
 }
 
 /* Text Styles*/
@@ -103,6 +147,11 @@ img {
 
 .lead {
   font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.directions{
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -189,7 +238,7 @@ img {
   background: var(--light-color);
   color: #333;
   padding: 0.4rem 1.3rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
@@ -331,26 +380,6 @@ button {
   width: 4rem;
 }
 
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
-}
-
 .table th,
 .table td {
   padding: 1rem;
@@ -366,13 +395,12 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0rem 2rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
 }
 
 .navbar ul {
@@ -381,8 +409,8 @@ button {
 
 .navbar a {
   color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+  padding: 0rem;
+  margin: 2 0rem;
 }
 
 .navbar a:hover {
@@ -393,12 +421,6 @@ button {
   margin-right: 0.6rem;
 }
 
-/* Landing Page */
-.landing {
-  position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
-  height: 100vh;
-}
 
 .landing-inner {
   color: #fff;
@@ -412,147 +434,56 @@ button {
   text-align: center;
 }
 
-/* Profiles Page */
-.profile {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  align-items: center;
-  grid-gap: 2rem;
-  padding: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-/* Profile Page */
-.profile-grid {
-  display: grid;
-  grid-template-areas:
-    'top top'
-    'about about'
-    'exp edu'
-    'github github';
-  grid-gap: 1rem;
-}
-
-.profile-top {
-  grid-area: top;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-top img {
-  width: 250px;
-}
-
-.profile-top .icons a {
-  color: #fff;
-  margin: 0 0.3rem;
-}
-
-.profile-top .icons a:hover {
-  color: var(--dark-color);
-}
-
-.profile-about {
-  grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-exp {
-  grid-area: exp;
-}
-
-.profile-edu {
-  grid-area: edu;
-}
-
-.profile-exp h2,
-.profile-edu h2 {
-  margin-bottom: 1rem;
-}
-
-.profile-exp>div,
-.profile-edu>div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: #ccc 1px dotted;
-}
-
-.profile-exp>div:last-child,
-.profile-edu>div:last-child {
-  border: 0;
-}
-
-.profile-exp p,
-.profile-edu p {
-  margin: 0.5rem 0;
-}
-
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
-  display: flex;
-}
-
-.profile-github .repo>div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github>div:last-child {
-  flex: 3;
-  flex-basis: 20%;
-}
-
-/* Posts Page */
-.post-form .post-form-header {
-  background: var(--primary-color);
-  padding: 0.5rem;
-}
-
-.post {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
-  align-items: center;
-}
-
-.post>div:first-child {
-  text-align: center;
-}
-
-.post img {
-  width: 100px;
-}
-
-.post .comment-count {
-  background: var(--light-color);
-  color: var(--primary-color);
-  padding: 0.1rem 0.2rem;
-  border-radius: 5px;
-  font-size: 0.8rem;
-}
-
-.post .post-date {
-  color: #aaa;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
-}
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
+
+  .landing {
+    position: relative;
+    background: url('./img/showcase.jpg') no-repeat center center/cover;
+    height: 130vh;
+    margin-top: 60px
+  }
+
+  .container-dashboard {
+    background: url('./img/bballbackground.jpg') no-repeat center center/cover;
+    margin-top: 80px
+  }
+  
+  .container-centered {
+    position: relative;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    max-height:600px;
+    margin: auto; 
+    overflow: auto;
+    padding: 0 0 0 0px;
+    margin-top: 1px;
+    background: rgba(255, 255, 255, 0.638);
+    border: solid rgb(0, 0, 0);
+    border-width: 1px;
+  }
+  
+  .container-tweet {
+    display: none;
+    visibility: hidden;
+  }
+
+  .float-container {
+    display: flex;
+    gap: 10px;
+  
+  }
+  
+  .float-child {
+    width: 20%;
+    float: left;
+    padding: 5px;
+    border: 2px solid red;
+    }
+
   .container {
     margin-top: 8rem;
   }
@@ -567,11 +498,16 @@ button {
   }
 
   .large {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .lead {
     font-size: 1rem;
+  }
+
+  .directions {
+    font-size: .8rem;
+    font-style: oblique;
   }
 
   /* Navbar */
@@ -586,7 +522,7 @@ button {
   }
 
   .navbar h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 
   .navbar .welcome {

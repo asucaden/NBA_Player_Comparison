@@ -14,11 +14,11 @@ const PlayerReviewer = ({
 
   return (
     <>
+      <button className='btn btn-primary' onClick={() => loadPlayers()}>
+        Generate new player comparison
+      </button>
       {sleeperPlayer.cm_name && (
         <>
-          <button className='btn btn-primary' onClick={() => loadPlayers()}>
-            Generate new player comparison
-          </button>
           <div className='float-container'>
             <div classname='float-child'>
               <br />
@@ -46,6 +46,11 @@ const PlayerReviewer = ({
             </div>
           </div>
           <ComparisionTweeter />
+          <p className='directions'>
+            Mark a comparison 'tweet-worthy' to queue it to
+            <br />
+            be tweeted by the @c_swish_stats twitter bot!
+          </p>
         </>
       )}
     </>
@@ -57,7 +62,7 @@ PlayerReviewer.propTypes = {
   players: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   players: state.playerReview,
 });
 

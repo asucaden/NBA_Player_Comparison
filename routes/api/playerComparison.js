@@ -29,15 +29,13 @@ const STATTOTMAX = 48.8;
 
 // @route   GET api/playerComparison
 // @desc    Return a potential player pair
-// @access  Private
-router.get('/', auth, async (req, res) => {
+// @access  Public
+router.get('/', async (req, res) => {
   console.log('Getting pinged');
   var players = [];
   try {
     var famousPlayer = {};
     var sleeperPlayer = {};
-    var minFame = 0;
-    var maxFame = 0;
     var i = 0;
     var checkAgain = true;
     while (checkAgain) {
@@ -108,7 +106,7 @@ router.get('/', auth, async (req, res) => {
 
 // @route   POST api/playerComparison
 // @desc    Post a player pair for tweeting
-// @access  Private
+// @access  Public
 router.post(
   '/',
   [
