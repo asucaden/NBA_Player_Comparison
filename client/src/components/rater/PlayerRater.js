@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loadRatings } from "../../actions/playerRater";
 import { ratePlayers } from "../../actions/ratePlayers";
+import Spinner from "../layout/Spinner";
 
 const PlayerRater = ({
   loadRatings,
@@ -48,7 +49,7 @@ const PlayerRater = ({
               {Math.round(player2.cm_fame)} ELO Rating
               <br />
               <button
-                className="btn btn-success"
+                className="btn btn-success float-child-center"
                 onClick={() =>
                   ratePlayers({
                     player1: player1.cm_name,
@@ -64,7 +65,7 @@ const PlayerRater = ({
         </>
       )}
 
-      {!player1.cm_name && <>nothing here yet</>}
+      {!player1.cm_name && <Spinner />}
     </>
   );
 };

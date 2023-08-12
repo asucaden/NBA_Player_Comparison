@@ -11,12 +11,14 @@ const Dashboard = () => {
           <PlayerReviewer />
         </section>
         <section className="container-tweet">
-          <TwitterTimelineEmbed
-            sourceType="profile"
-            screenName="c_swish_stats"
-            noHeader="true"
-            options={{ height: 800, width: 350 }}
-          />
+          {false && (
+            <TwitterTimelineEmbed
+              sourceType="timeline"
+              screenName="@c_swish_stats"
+              noHeader="false"
+              options={{ height: 800, width: 350 }}
+            />
+          )}
         </section>
       </section>
     </>

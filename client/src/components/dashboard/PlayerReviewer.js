@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loadPlayers } from "../../actions/playerReview";
 import ComparisionTweeter from "./ComparisionTweeter";
+import Spinner from "../layout/Spinner";
 
 const PlayerReviewer = ({
   loadPlayers,
@@ -45,7 +46,7 @@ const PlayerReviewer = ({
               {famousPlayer.cm_ts_pct}% True Shooting
             </div>
           </div>
-          <ComparisionTweeter />
+          <ComparisionTweeter className="flex-buttons" />
           <p className="directions">
             Mark a comparison 'tweet-worthy' to queue it to
             <br />
@@ -53,6 +54,7 @@ const PlayerReviewer = ({
           </p>
         </>
       )}
+      {!sleeperPlayer.cm_name && <Spinner />}
     </>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ loading }) => {
   const links = (
-    <ul>
+    <ul className="navbar-ul">
       <li>
         <Link to="/dashboard">
           <i className="fas fa-user" />{" "}
@@ -11,9 +11,11 @@ const Navbar = ({ loading }) => {
             Generate tweets&nbsp;&nbsp;&nbsp;&nbsp;
           </span>
         </Link>
+      </li>
+      <li>
         <Link to="/rater">
           <i className="fas fa-user" />{" "}
-          <span className="hide-sm">Rate players&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span className="hide-sm">Rate players&nbsp;&nbsp;&nbsp;</span>
         </Link>
       </li>
       <li>
@@ -29,11 +31,11 @@ const Navbar = ({ loading }) => {
   );
 
   return (
-    <nav className="navbar bg-dark">
-      <h1>
-        <Link to="/">C Swish Stats </Link>
-      </h1>
-      {!loading && <Fragment>{links}</Fragment>}
+    <nav className="navbar-container bg-dark">
+      <Link className="navbar-link" to="/">
+        <h1>C Swish Stats</h1>
+      </Link>
+      {!loading && <>{links}</>}
     </nav>
   );
 };

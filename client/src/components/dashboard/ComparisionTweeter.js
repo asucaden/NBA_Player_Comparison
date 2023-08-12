@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
 //import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { tweetComparison } from '../../actions/tweetComparison';
-import { loadPlayers } from '../../actions/playerReview';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { tweetComparison } from "../../actions/tweetComparison";
+import { loadPlayers } from "../../actions/playerReview";
 
 const ComparisonTweeter = ({ tweetComparison, loadPlayers, players }) => {
   return (
-    <div>
-      <br />
+    <div className="flex-buttons">
       <button
-        className='btn btn-success'
+        className="btn btn-success"
         onClick={() => tweetComparison(players)}
       >
         Tweet-worthy!
       </button>
-      <button className='btn btn-danger' onClick={() => loadPlayers()}>
+      <button className="btn btn-danger" onClick={() => loadPlayers()}>
         Discard it
       </button>
     </div>
@@ -27,7 +26,7 @@ ComparisonTweeter.propTypes = {
   players: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   players: state.playerReview,
 });
 
