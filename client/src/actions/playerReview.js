@@ -1,10 +1,10 @@
-import api from '../utils/api';
-import { PLAYER_LOAD_SUCCESS, PLAYER_LOAD_FAILURE } from './types';
+import api from "../utils/api";
+import { PLAYER_LOAD_SUCCESS, PLAYER_LOAD_FAILURE } from "./types";
 
 // Load Players
-export const loadPlayers = () => async dispatch => {
+export const loadPlayers = () => async (dispatch) => {
   try {
-    const res = await api.get('/playerComparison');
+    const res = await api.get("/playerComparison");
 
     dispatch({
       type: PLAYER_LOAD_SUCCESS,

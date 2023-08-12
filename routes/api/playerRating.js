@@ -59,8 +59,9 @@ router.post(
       // cont. this would basically eliminate exploiting rankings by posting in whatever players you want
       // lol the exploit I'm worried about is exploitable in eloeverything.co
       // if it didnt stop that site (which actually has users) it shouldnt stop me
-      const playerA = req.body.winner;
-      const playerB = req.body.loser;
+
+      const playerA = req.body.player1;
+      const playerB = req.body.player2;
 
       const player1 = await Player.findOne({
         cm_name: { $eq: playerA },
@@ -73,7 +74,7 @@ router.post(
       [player1.cm_fame, player2.cm_fame] = updateElo(
         player1.cm_fame,
         player2.cm_fame,
-        1
+        req.body.winner
       );
 
       await player1.save();

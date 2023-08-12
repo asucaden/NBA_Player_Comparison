@@ -1,7 +1,6 @@
 .float-container {
   display: flex;
   gap: 90px;
-
 }
 
 .float-child {
@@ -35,7 +34,7 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.3rem;
   line-height: 1.6;
   background-color: #fff;
@@ -59,7 +58,6 @@ img {
 .container {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
   max-width: 1100px;
   margin: auto;
   overflow: hidden;
@@ -88,20 +86,31 @@ img {
 
 .container-dashboard {
   height: 120vh;
-  background: url('./img/bballbackground.jpg') no-repeat center center/cover;
-  margin-top: 50px
+  background: url("./img/bballbackground.jpg") no-repeat center center/cover;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .container-centered {
-  position: absolute;
-  top: 45%;
-  left: 35%;
-  transform: translate(-50%, -50%);
   max-width: 1000px;
-  max-height:1000px;
+  max-height: 1000px;
   margin: auto;
-  margin-top: 80px; 
-  overflow: hidden;
+  margin-top: 120px;
+  padding: 4rem;
+  padding-bottom: 6rem;
+  background: rgba(255, 255, 255, 0.638);
+  border: solid rgb(0, 0, 0);
+  border-width: 1px;
+}
+
+.container-rater {
+  max-width: 1000px;
+  max-height: 1000px;
+  margin-top: 8px;
+
+  align-self: center;
+  justify-content: center;
   padding: 4rem;
   margin-bottom: 3rem;
   background: rgba(255, 255, 255, 0.638);
@@ -110,7 +119,7 @@ img {
 }
 
 .container-tweet {
-  float: right; 
+  float: right;
   overflow: hidden;
   padding: 1rem;
   margin: 3rem;
@@ -125,11 +134,16 @@ img {
 }
 */
 
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+}
+
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url("./img/showcase.jpg") no-repeat center center/cover;
   height: 100vh;
-  margin-top: 40px
+  margin-top: 40px;
 }
 
 /* Text Styles*/
@@ -150,7 +164,7 @@ img {
   margin-bottom: 1rem;
 }
 
-.directions{
+.directions {
   font-size: 1rem;
   margin-bottom: 1rem;
 }
@@ -303,7 +317,6 @@ img {
   color: #fff;
 }
 
-
 .btn-white,
 .bg-white,
 .badge-white,
@@ -353,10 +366,10 @@ img {
   color: #888;
 }
 
-.form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
 .form select,
 .form textarea {
   display: block;
@@ -366,7 +379,7 @@ img {
   border: 1px solid #ccc;
 }
 
-.form input[type='submit'],
+.form input[type="submit"],
 button {
   font: inherit;
 }
@@ -393,18 +406,22 @@ button {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   padding: 0rem 2rem;
   position: fixed;
   z-index: 1;
+  height: 50px;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 2px var(--primary-color);
 }
 
 .navbar ul {
   display: flex;
+  position: fixed;
+  width: 90%;
+  justify-content: right;
 }
 
 .navbar a {
@@ -421,7 +438,6 @@ button {
   margin-right: 0.6rem;
 }
 
-
 .landing-inner {
   color: #fff;
   height: 100%;
@@ -434,30 +450,28 @@ button {
   text-align: center;
 }
 
-
 /* Mobile Styles */
 @media (max-width: 600px) {
-
   .landing {
     position: relative;
-    background: url('./img/showcase.jpg') no-repeat center center/cover;
+    background: url("./img/showcase.jpg") no-repeat center center/cover;
     height: 130vh;
-    margin-top: 60px
+    margin-top: 60px;
   }
 
   .container-dashboard {
-    background: url('./img/bballbackground.jpg') no-repeat center center/cover;
-    margin-top: 80px
+    background: url("./img/bballbackground.jpg") no-repeat center center/cover;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
   }
-  
+
   .container-centered {
-    position: relative;
     top: 46%;
     left: 50%;
-    transform: translate(-50%, -50%);
     max-width: 600px;
-    max-height:600px;
-    margin: auto; 
+    max-height: 600px;
+    margin: auto;
     overflow: auto;
     padding: 0 0 0 0px;
     margin-top: 1px;
@@ -465,24 +479,20 @@ button {
     border: solid rgb(0, 0, 0);
     border-width: 1px;
   }
-  
+
   .container-tweet {
     display: none;
     visibility: hidden;
   }
 
   .float-container {
+    position: relative;
+    top: 46%;
+    transform: translate(-50%, -50%);
     display: flex;
+    margin-top: 100px;
     gap: 10px;
-  
   }
-  
-  .float-child {
-    width: 20%;
-    float: left;
-    padding: 5px;
-    border: 2px solid red;
-    }
 
   .container {
     margin-top: 8rem;
@@ -506,7 +516,7 @@ button {
   }
 
   .directions {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-style: oblique;
   }
 
@@ -549,11 +559,11 @@ button {
 
   .profile-grid {
     grid-template-areas:
-      'top'
-      'about'
-      'exp'
-      'edu'
-      'github';
+      "top"
+      "about"
+      "exp"
+      "edu"
+      "github";
   }
 
   .profile-about .skills {

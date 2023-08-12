@@ -1,9 +1,9 @@
 import {
   TWEET_COMPARISON_FAIL,
   TWEET_COMPARISON_SUCCESS,
-} from '../actions/types';
+} from "../actions/types";
 
-export default function playerReview(state = initialState, action) {
+export default function tweetComparison(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
