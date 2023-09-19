@@ -27,11 +27,14 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  /* --primary-color: #17a2b8; */
+  --primary-color: rgb(207, 83, 0);
   --dark-color: #343a40;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --danger-color: #d11313;
+  --success-color: #d35c17;
+  --box-background-color: rgb(32, 30, 30);
+  /* --box-background-color: var(--dark-color); */
 }
 
 * {
@@ -59,6 +62,15 @@ ul {
 
 img {
   width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wraps;
+  height: 150px;
 }
 
 /* Utilities */
@@ -92,37 +104,30 @@ img {
 */
 
 .container-dashboard {
-  height: 120vh;
-  background: url("./img/bballbackground.jpg") no-repeat center center/cover;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    url("./img/scratchedcourt.jpg") no-repeat center center/cover;
   margin-top: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .container-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 1000px;
   max-height: 1000px;
   margin: auto;
   margin-top: 120px;
-  padding: 4rem;
+  padding: 4rem 8rem;
   padding-bottom: 4rem;
-  background: rgba(255, 255, 255, 0.638);
-  border: solid rgb(0, 0, 0);
-  border-width: 1px;
+  color: white;
 }
 
-.container-rater {
-  max-width: 1000px;
-  max-height: 1000px;
-  margin-top: 8px;
-
-  align-self: center;
-  justify-content: center;
-  padding: 4rem;
-  margin-bottom: 3rem;
-  background: rgba(255, 255, 255, 0.638);
-  border: solid rgb(0, 0, 0);
-  border-width: 1px;
+.container-rater,
+.container-dashboard h1 {
+  color: white;
 }
 
 .container-tweet {
@@ -165,8 +170,8 @@ img {
 
 .landing {
   position: relative;
-  background: url("./img/showcase.jpg") no-repeat center center/cover;
-  height: 100vh;
+  background: url("./img/darkshot.jpg") no-repeat center center/cover;
+  height: 99vh;
   margin-top: 50px;
 }
 
@@ -186,6 +191,7 @@ img {
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  max-width: 55ch;
 }
 
 .directions {
@@ -201,6 +207,9 @@ img {
   color: var(--primary-color);
 }
 
+.text-light {
+  color: var(--light-color);
+}
 .text-dark {
   color: var(--dark-color);
 }
@@ -434,11 +443,11 @@ button {
   align-items: center;
   padding: 0rem 2rem;
   position: fixed;
-  height: fit-content;
+  height: 60px;
   width: 100%;
   flex-wrap: nowrap;
   top: 0;
-  border-bottom: solid 2px var(--primary-color);
+  border-bottom: solid 4px var(--primary-color);
   z-index: 5;
 }
 
@@ -453,25 +462,32 @@ button {
   margin: 2 0rem;
 }
 
-.navbar-link {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%;
-  justify-content: flex-start;
-  color: #fff;
-  padding: 0rem;
-  margin: 2 0rem;
+.navbar-ul li {
+  padding-right: 12px;
 }
 
 .navbar-link {
   color: #fff;
-  flex-wrap: nowrap;
-  padding: 2rem;
-  margin: 2 0rem;
+  word-spacing: 10;
+  transition: transform 300ms;
+}
+
+.navbar-link h1 {
+  white-space: nowrap;
 }
 
 .navbar-link:hover {
+  color: var(--primary-color);
+  h1 {
+    transition: all 300ms;
+    transform: scale(1.1);
+  }
+}
+
+.navbar-ul li:hover,
+.navbar-ul a:hover {
+  transition: all 150ms;
+  transform: scale(1.1);
   color: var(--primary-color);
 }
 
@@ -485,13 +501,9 @@ button {
   color: var(--primary-color);
 }
 
-.navbar .welcome span {
-  margin-right: 1.6rem;
-}
-
 span {
-  font-size: x-large;
-  margin-right: 1.6rem;
+  font-size: large;
+  margin-right: 1rem;
   text-wrap: nowrap;
 }
 
@@ -508,12 +520,11 @@ span {
 }
 
 /* Mobile Styles */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .landing {
     position: relative;
-    background: url("./img/showcase.jpg") no-repeat center center/cover;
-    height: 130vh;
-    margin-top: 60px;
+    background: url("./img/darkshot.jpg") no-repeat center center/cover;
+    height: 100vh;
   }
 
   .container-dashboard {
@@ -532,7 +543,7 @@ span {
     overflow: auto;
     padding: 0 0 0 0px;
     margin-top: 1px;
-    background: rgba(255, 255, 255, 0.638);
+    background: rgba(110, 29, 29, 0.638);
     border: solid rgb(0, 0, 0);
     border-width: 1px;
   }
@@ -578,18 +589,27 @@ span {
   }
 
   /* Navbar */
-  .navbar {
-    display: block;
-    text-align: center;
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 170px;
   }
 
-  .navbar ul {
-    text-align: center;
-    justify-content: center;
+  .navbar-ul {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
   }
 
   .navbar h1 {
     margin-bottom: 0rem;
+  }
+
+  .navbar-link h1 {
+    font-size: 50px;
   }
 
   .navbar .welcome {

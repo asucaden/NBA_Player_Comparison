@@ -7,7 +7,7 @@ import Rater from "./components/rater/Rater";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
-import "./App.css";
+import "./App2.css";
 
 const App = () => {
   return (

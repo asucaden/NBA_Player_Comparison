@@ -18,7 +18,7 @@ const Rater = () => {
       </>
       <section className="container-dashboard">
         <section className="container-centered">
-          <h1 className="large text-primary">Player Rater</h1>
+          <h1 className="large text-light">Player Rater</h1>
           <PlayerRater />
         </section>
       </section>

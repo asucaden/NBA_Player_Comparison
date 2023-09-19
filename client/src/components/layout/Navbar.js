@@ -6,16 +6,13 @@ const Navbar = ({ loading }) => {
     <ul className="navbar-ul">
       <li>
         <Link to="/dashboard">
-          <i className="fas fa-user" />{" "}
-          <span className="hide-sm">
-            Generate tweets&nbsp;&nbsp;&nbsp;&nbsp;
-          </span>
+          <i className="fas fa-user" /> <span>Generate tweets</span>
         </Link>
       </li>
       <li>
         <Link to="/rater">
-          <i className="fas fa-user" />{" "}
-          <span className="hide-sm">Rate players&nbsp;&nbsp;&nbsp;</span>
+          <i className="fas fa-user" />
+          <span>Rate players</span>
         </Link>
       </li>
       <li>
@@ -32,9 +29,11 @@ const Navbar = ({ loading }) => {
 
   return (
     <nav className="navbar-container bg-dark">
-      <Link className="navbar-link" to="/">
-        <h1>C Swish Stats</h1>
-      </Link>
+      <div>
+        <Link className="navbar-link" to="/">
+          <h1>C Swish Stats</h1>
+        </Link>
+      </div>
       {!loading && <>{links}</>}
     </nav>
   );
