@@ -5,7 +5,6 @@ import { RATING_GET_FAILURE, RATING_GET_SUCCESS } from "./types";
 export const loadRatings = () => async (dispatch) => {
   try {
     const res = await api.get("/playerRating");
-
     dispatch({
       type: RATING_GET_SUCCESS,
       payload: res.data,

@@ -1,4 +1,5 @@
 import api from "../utils/api";
+import { sleep } from "../utils/sleep";
 import { loadRatings } from "./playerRater";
 import { RATE_PLAYER_FAILURE, RATE_PLAYER_SUCCESS } from "./types";
 
@@ -7,11 +8,21 @@ export const ratePlayers =
   ({ player1, player2, winner }) =>
   async (dispatch) => {
     try {
-      const postThis = await { player1, player2, winner };
-      const res = await api.post("/playerRating", postThis);
-      dispatch({ type: RATE_PLAYER_SUCCESS, payload: res.data });
-      dispatch(loadRatings());
+      const name1 = player1.cm_name;
+      const name2 = player2.cm_name;
+      const postThis = { player1: name1, player2: name2, winner };
+      const res = api.post("/playerRating", postThis);
+      await dispatch({
+        type: RATE_PLAYER_SUCCESS,
+        payload: { player1, player2, winner },
+      });
+      //await dispatch({ type: RATE_PLAYER_SUCCESS, payload: res.data });
+      await sleep(400);
+      dispatch(loadRatings({ player1, player2, winner }));
     } catch (err) {
-      dispatch({ type: RATE_PLAYER_FAILURE });
+      dispatch({
+        type: RATE_PLAYER_FAILURE,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
     }
   };

@@ -8,7 +8,7 @@ import Spinner from "../layout/Spinner";
 const PlayerRater = ({
   loadRatings,
   ratePlayers,
-  players: { player1, player2 },
+  players: { player1, player2, updated },
 }) => {
   useEffect(() => {
     loadRatings();
@@ -25,38 +25,78 @@ const PlayerRater = ({
           <div className="float-container">
             <div classname="float-child">
               <br />
-              {player1.cm_name}
-              <br />
-              {Math.round(player1.cm_fame)} ELO Rating
-              <br />
+              {updated == 0 && (
+                <>
+                  <p style={{ color: "white" }}>
+                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
+                    Rating
+                  </p>
+                </>
+              )}
+              {updated == 1 && (
+                <>
+                  <p style={{ color: "lime" }}>
+                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
+                    Rating
+                  </p>
+                </>
+              )}
+              {updated == 2 && (
+                <>
+                  <p style={{ color: "red" }}>
+                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
+                    Rating
+                  </p>
+                </>
+              )}
               <button
                 className="btn btn-success"
-                onClick={() =>
+                onClick={() => {
                   ratePlayers({
-                    player1: player1.cm_name,
-                    player2: player2.cm_name,
+                    player1: player1,
+                    player2: player2,
                     winner: 1,
-                  })
-                }
+                  });
+                }}
               >
                 ^ He's better
               </button>
             </div>
             <div classname="float-child">
               <br />
-              {player2.cm_name}
-              <br />
-              {Math.round(player2.cm_fame)} ELO Rating
-              <br />
+              {updated == 0 && (
+                <>
+                  <p style={{ color: "white" }}>
+                    {player2.cm_name}
+                    <br /> {Math.round(player2.cm_fame)} ELO Rating
+                  </p>
+                </>
+              )}
+              {updated == 1 && (
+                <>
+                  <p style={{ color: "red" }}>
+                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)} ELO
+                    Rating
+                  </p>
+                </>
+              )}
+              {updated == 2 && (
+                <>
+                  <p style={{ color: "lime" }}>
+                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)} ELO
+                    Rating
+                  </p>
+                </>
+              )}
               <button
                 className="btn btn-success float-child-center"
-                onClick={() =>
+                onClick={() => {
                   ratePlayers({
-                    player1: player1.cm_name,
-                    player2: player2.cm_name,
+                    player1: player1,
+                    player2: player2,
                     winner: 2,
-                  })
-                }
+                  });
+                }}
               >
                 ^ He's better
               </button>
@@ -71,7 +111,7 @@ const PlayerRater = ({
 };
 
 PlayerRater.propTypes = {
-  loadPlayers: PropTypes.func.isRequired,
+  loadRatings: PropTypes.func.isRequired,
   ratePlayers: PropTypes.func.isRequired,
   players: PropTypes.object,
 };
