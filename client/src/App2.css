@@ -1,14 +1,103 @@
 .float-container {
   display: flex;
-  gap: 90px;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.float-child {
-  width: 20%;
+.float-child-left {
+  /* border: 2px solid red; */
+  width: 280px;
   float: left;
-  padding: 20px;
-  border: 2px solid red;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+.float-child-right {
+  width: 280px;
+  float: right;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.float-child-half-wide {
+  width: 50%;
+  align-self: center;
+}
+
+.float-child-wide {
+  width: 100%;
+}
+
+.player-name {
+  display: block;
+  transition-property: transform;
+  transition-timing-function: ease;
+  transition-duration: 1000ms;
+}
+
+.player-picture {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.player-picture-fade {
+  animation: fade 1300ms ease 0ms 1 normal forwards;
+}
+
+.player-name-rise {
+  display: block;
+  animation: rise 1300ms ease 0ms 1 normal forwards;
+}
+
+.player-name-fall {
+  display: block;
+  animation: fall 1300ms ease 0ms 1 normal forwards;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 100%;
+    color: white;
+  }
+
+  20% {
+    color: limegreen;
+  }
+  100% {
+    transform: translateY(-25px);
+    opacity: 20%;
+    color: limegreen;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 100%;
+    color: white;
+  }
+
+  20% {
+    color: red;
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 20%;
+    color: red;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
+  }
 }
 
 .flex-buttons {
@@ -107,7 +196,8 @@ img {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
     url("./img/scratchedcourt.jpg") no-repeat center center/cover;
-  margin-top: 10px;
+  margin-top: 150px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
 }
@@ -119,7 +209,7 @@ img {
   max-width: 1000px;
   max-height: 1000px;
   margin: auto;
-  margin-top: 120px;
+  margin-top: 60px;
   padding: 4rem 8rem;
   padding-bottom: 4rem;
   color: white;
@@ -168,6 +258,22 @@ img {
   justify-content: space-around;
 }
 
+.button-v {
+  margin: 3% 0 10% 0;
+  cursor: pointer;
+}
+
+.button-div {
+  padding: 25px 10px;
+}
+
+.button-div:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.15);
+  /* border: 1px solid var(--dark-color); */
+  transition: all 200ms;
+}
+
 .landing {
   position: relative;
   background: url("./img/darkshot.jpg") no-repeat center center/cover;
@@ -201,6 +307,9 @@ img {
 
 .text-center {
   text-align: center;
+  position: relative;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 .text-primary {
@@ -524,30 +633,33 @@ span {
   .landing {
     position: relative;
     background: url("./img/darkshot.jpg") no-repeat center center/cover;
-    height: 100vh;
+    height: calc(100% - 300px);
   }
 
   .container-dashboard {
-    background: url("./img/bballbackground.jpg") no-repeat center center/cover;
-    margin-top: 80px;
+    height: 100vh;
+    margin: 150px 0px 0px 0px;
+    padding: 50px 0px 0px 0px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
 
   .container-centered {
-    top: 46%;
-    left: 50%;
-    max-width: 600px;
-    max-height: 600px;
+    top: 0;
+    left: 0;
+    max-width: 100%;
     margin: auto;
-    overflow: auto;
+    /* overflow: auto; */
     padding: 0 0 0 0px;
     margin-top: 1px;
-    background: rgba(110, 29, 29, 0.638);
-    border: solid rgb(0, 0, 0);
-    border-width: 1px;
   }
 
+  .float-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
   .container-tweet {
     display: none;
     visibility: hidden;
@@ -555,11 +667,13 @@ span {
 
   .float-container {
     position: relative;
-    top: 46%;
-    transform: translate(-50%, -50%);
     display: flex;
-    margin-top: 100px;
-    gap: 10px;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+    margin: auto;
   }
 
   .container {
@@ -606,10 +720,11 @@ span {
 
   .navbar h1 {
     margin-bottom: 0rem;
+    font-size: medium;
   }
 
   .navbar-link h1 {
-    font-size: 50px;
+    font-size: 38px;
   }
 
   .navbar .welcome {

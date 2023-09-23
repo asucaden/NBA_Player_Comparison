@@ -8,7 +8,7 @@ import Spinner from "../layout/Spinner";
 const PlayerRater = ({
   loadRatings,
   ratePlayers,
-  players: { player1, player2, updated },
+  players: { player1, player2, updated, fame_delta },
 }) => {
   useEffect(() => {
     loadRatings();
@@ -18,88 +18,113 @@ const PlayerRater = ({
     <>
       {player1.cm_name && (
         <>
-          <button className="btn btn-primary" onClick={() => loadRatings()}>
-            Generate new player comparison
+          <button
+            className="btn btn-primary float-child-half-wide"
+            onClick={() => loadRatings()}
+          >
+            Skip
           </button>
 
           <div className="float-container">
-            <div classname="float-child">
-              <br />
-              {updated == 0 && (
+            <div
+              className="float-child-left button-div"
+              onClick={() => {
+                ratePlayers({
+                  player1: player1,
+                  player2: player2,
+                  winner: 1,
+                });
+              }}
+            >
+              {updated === 0 && (
                 <>
-                  <p style={{ color: "white" }}>
+                  <p className="player-name text-center">
                     {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
                     Rating
                   </p>
+                  <img
+                    className="player-picture"
+                    src={`/${player1.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player1.cm_name}
+                  ></img>
                 </>
               )}
-              {updated == 1 && (
+              {updated === 1 && (
                 <>
-                  <p style={{ color: "lime" }}>
-                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
-                    Rating
+                  <p className="player-name player-name-rise text-center">
+                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)}(+
+                    {fame_delta}) ELO Rating
                   </p>
+                  <img
+                    className="player-picture player-picture-fade"
+                    src={`/${player1.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player1.cm_name}
+                  ></img>
                 </>
               )}
-              {updated == 2 && (
+              {updated === 2 && (
                 <>
-                  <p style={{ color: "red" }}>
-                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)} ELO
-                    Rating
+                  <p className="player-name player-name-fall text-center">
+                    {player1.cm_name} <br /> {Math.round(player1.cm_fame)}
+                    (-{fame_delta}) ELO Rating
                   </p>
+                  <img
+                    className="player-picture player-picture-fade"
+                    src={`/${player1.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player1.cm_name}
+                  ></img>
                 </>
               )}
-              <button
-                className="btn btn-success"
-                onClick={() => {
-                  ratePlayers({
-                    player1: player1,
-                    player2: player2,
-                    winner: 1,
-                  });
-                }}
-              >
-                ^ He's better
-              </button>
             </div>
-            <div classname="float-child">
-              <br />
-              {updated == 0 && (
+            <div
+              className="float-child-right button-div"
+              onClick={() => {
+                ratePlayers({
+                  player1: player1,
+                  player2: player2,
+                  winner: 2,
+                });
+              }}
+            >
+              {updated === 0 && (
                 <>
-                  <p style={{ color: "white" }}>
+                  <p className="player-name text-center">
                     {player2.cm_name}
                     <br /> {Math.round(player2.cm_fame)} ELO Rating
                   </p>
+                  <img
+                    className="player-picture"
+                    src={`/${player2.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player2.cm_name}
+                  ></img>
                 </>
               )}
-              {updated == 1 && (
+              {updated === 1 && (
                 <>
-                  <p style={{ color: "red" }}>
-                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)} ELO
-                    Rating
+                  <p className="player-name player-name-fall text-center">
+                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)}(-
+                    {fame_delta}) ELO Rating
                   </p>
+                  <img
+                    className="player-picture player-picture-fade"
+                    src={`/${player2.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player2.cm_name}
+                  ></img>
                 </>
               )}
-              {updated == 2 && (
+              {updated === 2 && (
                 <>
-                  <p style={{ color: "lime" }}>
-                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)} ELO
-                    Rating
+                  <p className="player-name player-name-rise text-center">
+                    {player2.cm_name} <br /> {Math.round(player2.cm_fame)}(+
+                    {fame_delta}) ELO Rating
                   </p>
+                  <img
+                    className="player-picture player-picture-fade"
+                    src={`/${player2.cm_name.replaceAll(" ", "-")}.png`}
+                    alt={player2.cm_name}
+                  ></img>
                 </>
               )}
-              <button
-                className="btn btn-success float-child-center"
-                onClick={() => {
-                  ratePlayers({
-                    player1: player1,
-                    player2: player2,
-                    winner: 2,
-                  });
-                }}
-              >
-                ^ He's better
-              </button>
             </div>
           </div>
         </>

@@ -21,7 +21,7 @@ const PlayerReviewer = ({
       {sleeperPlayer.cm_name && (
         <>
           <div className="float-container">
-            <div classname="float-child">
+            <div className="float-child">
               <br />
               {sleeperPlayer.cm_name}
               <br />
@@ -33,7 +33,7 @@ const PlayerReviewer = ({
               <br />
               {sleeperPlayer.cm_ts_pct}% True Shooting
             </div>
-            <div classname="float-child">
+            <div className="float-child">
               <br />
               {famousPlayer.cm_name}
               <br />

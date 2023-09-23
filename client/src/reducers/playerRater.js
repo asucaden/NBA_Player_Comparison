@@ -30,14 +30,24 @@ export default function playerRater(state = initialState, action) {
     case RATE_PLAYER_SUCCESS:
       const p1 = payload.player1;
       const p2 = payload.player2;
-      console.log(p1.cm_fame);
+
+      const p1_prev_fame = p1.cm_fame;
+      const p2_prev_fame = p2.cm_fame;
+
       [p1.cm_fame, p2.cm_fame] = updateElo(
         p1.cm_fame,
         p2.cm_fame,
         payload.winner
       );
 
-      return { ...state, player1: p1, player2: p2, updated: payload.winner };
+      const fame_delta = Math.abs(Math.round(p1_prev_fame - p1.cm_fame));
+      return {
+        ...state,
+        player1: p1,
+        player2: p2,
+        updated: payload.winner,
+        fame_delta,
+      };
 
     case RATE_PLAYER_FAILURE:
       return { ...state, error: payload, updated: 0 };
