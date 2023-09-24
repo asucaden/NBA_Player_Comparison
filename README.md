@@ -4,7 +4,7 @@ Did you know that last year, Shai Gilgeous-Alexander had almost the same amount 
 
 ### Description
 
-The NBA Player Comparison website shows you one player comparison at a time.  If you find a comparison interesting, mark it as tweet-worthy and it will be queued up to be tweeted from my twitter bot.  If no one uses the website (likely), no need to worry!  The twitter bot, @c_swish_stats, will continue to tweet interesting comparisons all on its own.  Visit <a href="http://www.cswishstats.com" target="_blank">cswishstats.com</a> to check out some player comparisons and give the bot a follow <a href="http://twitter.com/c_swish_stats/" target="_blank">@c_swish_stats on Twitter</a>
+The NBA Player Comparison website shows you one player comparison at a time.  If you find a comparison interesting, mark it as tweet-worthy and it will be queued up to be tweeted from my twitter bot.  If no one uses the website (likely), no need to worry!  The twitter bot, @c_swish_stats, will continue to tweet interesting comparisons all on its own.  Visit <a href="cswishstats.com" target="_blank">cswishstats.com</a> to check out some player comparisons and give the bot a follow <a href="http://twitter.com/c_swish_stats/" target="_blank">@c_swish_stats on Twitter</a>
 
 ### Under the hood
 
