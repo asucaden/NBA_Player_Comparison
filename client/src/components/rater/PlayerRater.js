@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loadRatings } from "../../actions/playerRater";
@@ -19,7 +19,7 @@ const PlayerRater = ({
       {player1.cm_name && (
         <>
           <button
-            className="btn btn-primary float-child-half-wide"
+            className="btn btn-primary btn-skip"
             onClick={() => loadRatings()}
           >
             Skip
@@ -44,6 +44,7 @@ const PlayerRater = ({
                   </p>
                   <img
                     className="player-picture"
+                    onLoad={() => {}}
                     src={`/${player1.cm_name.replaceAll(" ", "-")}.png`}
                     alt={player1.cm_name}
                   ></img>

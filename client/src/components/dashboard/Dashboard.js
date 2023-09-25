@@ -7,10 +7,10 @@ const Dashboard = () => {
     <>
       <section className="container-dashboard">
         <section className="container-centered">
-          <h1 className="large text-primary">Player Comparer</h1>
+          <h1 className="large text-light text-center">Player Comparer</h1>
           <PlayerReviewer />
         </section>
-        <section className="container-tweet">
+        {/* <section className="container-tweet">
           {false && (
             <TwitterTimelineEmbed
               sourceType="timeline"
@@ -19,7 +19,7 @@ const Dashboard = () => {
               options={{ height: 800, width: 350 }}
             />
           )}
-        </section>
+        </section> */}
       </section>
     </>
   );

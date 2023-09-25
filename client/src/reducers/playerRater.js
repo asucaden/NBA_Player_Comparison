@@ -32,7 +32,6 @@ export default function playerRater(state = initialState, action) {
       const p2 = payload.player2;
 
       const p1_prev_fame = p1.cm_fame;
-      const p2_prev_fame = p2.cm_fame;
 
       [p1.cm_fame, p2.cm_fame] = updateElo(
         p1.cm_fame,

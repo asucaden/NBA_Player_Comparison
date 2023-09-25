@@ -7,7 +7,7 @@ import { loadPlayers } from "../../actions/playerReview";
 
 const ComparisonTweeter = ({ tweetComparison, loadPlayers, players }) => {
   return (
-    <div className="flex-buttons">
+    <div className="flex-buttons-center">
       <button
         className="btn btn-success"
         onClick={() => tweetComparison(players)}

@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const mongoose = require('mongoose');
-const auth = require('../../middleware/auth');
-const Player = require('../../models/Player');
-const PlayerComparison = require('../../models/PlayerComparison');
+const mongoose = require("mongoose");
+const auth = require("../../middleware/auth");
+const Player = require("../../models/Player");
+const PlayerComparison = require("../../models/PlayerComparison");
 
-const { check, validationResult } = require('express-validator');
-const { selectFields } = require('express-validator/src/select-fields');
+const { check, validationResult } = require("express-validator");
+const { selectFields } = require("express-validator/src/select-fields");
 
 // These constants calibrate how 2 players are compared
 const TOTSPREAD = 5; // Controls how similar the 2 players pts+asts+rebs must be.  Lower means players must be closer statisticly.
@@ -30,8 +30,8 @@ const STATTOTMAX = 48.8;
 // @route   GET api/playerComparison
 // @desc    Return a potential player pair
 // @access  Public
-router.get('/', async (req, res) => {
-  console.log('Getting pinged');
+router.get("/", async (req, res) => {
+  console.log("Getting pinged");
   var players = [];
   try {
     var famousPlayer = {};
@@ -80,7 +80,7 @@ router.get('/', async (req, res) => {
         }
       }
     }
-    console.log('Took' + i + 'tries');
+    console.log("Took" + i + "tries");
     res.json({
       sleeperPlayer: {
         cm_name: sleeperPlayer.cm_name,
@@ -100,7 +100,7 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -108,10 +108,10 @@ router.get('/', async (req, res) => {
 // @desc    Post a player pair for tweeting
 // @access  Public
 router.post(
-  '/',
+  "/",
   [
-    check('sleeperPlayer', 'Must include a sleeper player').exists(),
-    check('famousPlayer', 'Must include a famous player').exists(),
+    check("sleeperPlayer", "Must include a sleeper player").exists(),
+    check("famousPlayer", "Must include a famous player").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -123,11 +123,11 @@ router.post(
         playerA: req.body.sleeperPlayer,
         playerB: req.body.famousPlayer,
       });
-      await newComparison.save();
+      newComparison.save();
       res.json({ newComparison });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      res.status(500).send("Server Error");
     }
   }
 );

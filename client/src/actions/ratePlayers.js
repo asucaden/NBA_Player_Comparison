@@ -11,7 +11,7 @@ export const ratePlayers =
       const name1 = player1.cm_name;
       const name2 = player2.cm_name;
       const postThis = { player1: name1, player2: name2, winner };
-      const res = api.post("/playerRating", postThis);
+      api.post("/playerRating", postThis);
       await dispatch({
         type: RATE_PLAYER_SUCCESS,
         payload: { player1, player2, winner },

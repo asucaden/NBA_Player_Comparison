@@ -21,15 +21,14 @@ router.get("/", async (req, res) => {
     console.log("Getting pinged get/");
     let players = await Player.find({});
     let i = Math.floor(Math.random() * players.length);
-    console.log("i is", i);
+    console.log("first player is: ", i);
     const player1 = players[i];
     i = Math.floor(Math.random() * players.length);
-    console.log("i is", i);
-    const player2 = players[i];
+    let player2 = players[i];
     while (player1.id === player2.id) {
       i = Math.floor(Math.random() * players.length);
       console.log("i is", i);
-      const player2 = players[i];
+      player2 = players[i];
     }
 
     console.log("Made it to end of get");

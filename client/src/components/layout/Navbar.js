@@ -29,11 +29,9 @@ const Navbar = ({ loading }) => {
 
   return (
     <nav className="navbar-container bg-dark">
-      <div>
-        <Link className="navbar-link" to="/">
-          <h1>C Swish Stats</h1>
-        </Link>
-      </div>
+      <Link className="navbar-link" to="/">
+        <h1>C Swish Stats</h1>
+      </Link>
       {!loading && <>{links}</>}
     </nav>
   );

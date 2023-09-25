@@ -15,16 +15,17 @@ const PlayerReviewer = ({
 
   return (
     <>
-      <button className="btn btn-primary" onClick={() => loadPlayers()}>
-        Generate new player comparison
-      </button>
+      {/* <button
+        className="btn btn-primary float-child-half-wide"
+        onClick={() => loadPlayers()}
+      >
+        Skip
+      </button> */}
       {sleeperPlayer.cm_name && (
         <>
           <div className="float-container">
-            <div className="float-child">
-              <br />
-              {sleeperPlayer.cm_name}
-              <br />
+            <div className="float-child-left text-center">
+              <h4>{sleeperPlayer.cm_name}</h4>
               {sleeperPlayer.pts} PTS
               <br />
               {sleeperPlayer.reb} REB
@@ -32,11 +33,14 @@ const PlayerReviewer = ({
               {sleeperPlayer.ast} AST
               <br />
               {sleeperPlayer.cm_ts_pct}% True Shooting
+              <img
+                className="player-picture"
+                src={`/${sleeperPlayer.cm_name.replaceAll(" ", "-")}.png`}
+                alt={sleeperPlayer.cm_name}
+              ></img>
             </div>
-            <div className="float-child">
-              <br />
-              {famousPlayer.cm_name}
-              <br />
+            <div className="float-child-right text-center">
+              <h4>{famousPlayer.cm_name}</h4>
               {famousPlayer.pts} PTS
               <br />
               {famousPlayer.reb} REB
@@ -44,13 +48,25 @@ const PlayerReviewer = ({
               {famousPlayer.ast} AST
               <br />
               {famousPlayer.cm_ts_pct}% True Shooting
+              <img
+                className="player-picture"
+                src={`/${famousPlayer.cm_name.replaceAll(" ", "-")}.png`}
+                alt={famousPlayer.cm_name}
+              ></img>
             </div>
           </div>
-          <ComparisionTweeter className="flex-buttons" />
+          <ComparisionTweeter />
+
           <p className="directions">
-            Mark a comparison 'tweet-worthy' to queue it to
-            <br />
-            be tweeted by the @c_swish_stats twitter bot!
+            If you mark a comparision 'tweet-worthy' it will be tweeted by the{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/c_swish_stats"
+            >
+              @c_swish_stats
+            </a>{" "}
+            twitter bot!
           </p>
         </>
       )}
