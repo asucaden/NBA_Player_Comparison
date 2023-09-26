@@ -10,7 +10,9 @@ const ComparisonTweeter = ({ tweetComparison, loadPlayers, players }) => {
     <div className="flex-buttons-center">
       <button
         className="btn btn-success"
-        onClick={() => tweetComparison(players)}
+        onClick={() => {
+          tweetComparison(players);
+        }}
       >
         Tweet-worthy!
       </button>
