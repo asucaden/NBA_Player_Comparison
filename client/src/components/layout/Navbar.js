@@ -6,23 +6,31 @@ const Navbar = ({ loading }) => {
     <ul className="navbar-ul">
       <li>
         <Link to="/dashboard">
-          <i className="fas fa-user" /> <span>Generate tweets</span>
+          <i className="fas fa-user" />
+          <span> Generate tweets</span>
         </Link>
       </li>
       <li>
         <Link to="/rater">
-          <i className="fas fa-user" />
-          <span>Rate players</span>
+          📈
+          <span> Rate players</span>
         </Link>
       </li>
       <li>
-        <a
-          href="https://twitter.com/c_swish_stats"
-          target="_blank"
-          rel="noreferrer"
-        >
-          @c_swish_stats
-        </a>
+        <span>
+          <a href="/leaderboard">🏀 Leaderboard</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a
+            href="https://twitter.com/c_swish_stats"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @ c_swish_stats
+          </a>
+        </span>
       </li>
     </ul>
   );

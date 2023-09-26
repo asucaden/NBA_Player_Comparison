@@ -5,26 +5,27 @@ const Landing = () => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">NBA Player Comparer</h1>
+          <h1 className="x-large">Rank, Discover, Tweet</h1>
           <p className="lead">
-            Did you know that Shai Gilgeous-Alexander had almost the same amount
-            of points, rebounds, and assists as all-time-great Steph Curry last
-            year? Explore more suprisingly similar players!
+            C Swish Stats exists to unearth players whose stats outperform their
+            public perception. Make your mark on public perception by rating
+            players and tell the @cswishstats twitter bot what to tweet out
+            next!
           </p>
           <div className="buttons">
             <Link to="/Rater" className="btn btn-primary">
-              Vote which player is better
+              Rate Players
             </Link>
             <Link to="/Dashboard" className="btn btn-primary">
-              View similar players
+              Review Comparisons
             </Link>
             <a
               href="https://twitter.com/c_swish_stats"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-light"
+              className="btn btn-success tweet"
             >
-              Check out the twitter bot
+              See Twitter Bot
             </a>
           </div>
         </div>

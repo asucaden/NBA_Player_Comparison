@@ -15,12 +15,6 @@ const PlayerReviewer = ({
 
   return (
     <>
-      {/* <button
-        className="btn btn-primary float-child-half-wide"
-        onClick={() => loadPlayers()}
-      >
-        Skip
-      </button> */}
       {sleeperPlayer.cm_name && (
         <>
           <div className="float-container">

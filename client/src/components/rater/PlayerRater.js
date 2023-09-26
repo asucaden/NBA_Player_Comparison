@@ -18,13 +18,6 @@ const PlayerRater = ({
     <>
       {player1.cm_name && (
         <>
-          <button
-            className="btn btn-primary btn-skip"
-            onClick={() => loadRatings()}
-          >
-            Skip
-          </button>
-
           <div className="float-container">
             <div
               className="float-child-left button-div"
@@ -128,6 +121,12 @@ const PlayerRater = ({
               )}
             </div>
           </div>
+          <button
+            className="btn btn-primary btn-skip"
+            onClick={() => loadRatings()}
+          >
+            Skip
+          </button>
         </>
       )}
 

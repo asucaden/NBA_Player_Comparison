@@ -16,6 +16,7 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/posts", require("./routes/api/posts"));
 app.use("/api/playerComparison", require("./routes/api/playerComparison"));
 app.use("/api/playerRating", require("./routes/api/playerRating"));
+app.use("/api/leaderboard", require("./routes/api/leaderboard"));
 
 // Serve static assets in production
 //Set static folder
