@@ -57,7 +57,7 @@
   font-size: 1.5rem;
   transition-property: transform;
   transition-timing-function: ease;
-  transition-duration: 1000ms;
+  transition-duration: 4000ms;
 }
 
 .player-picture {
@@ -67,17 +67,17 @@
 }
 
 .player-picture-fade {
-  animation: fade 2000ms ease 0ms 1 normal forwards;
+  animation: fade 4000ms ease 0ms 2 alternate forwards;
 }
 
 .player-name-rise {
   display: block;
-  animation: rise 2000ms ease 0ms 1 normal forwards;
+  animation: rise 3000ms ease 0ms 2 alternate forwards;
 }
 
 .player-name-fall {
   display: block;
-  animation: fall 2000ms ease 0ms 1 normal forwards;
+  animation: fall 3000ms ease 0ms 2 alternate forwards;
 }
 
 @keyframes rise {
@@ -91,7 +91,7 @@
     color: limegreen;
   }
   100% {
-    transform: translateY(-25px);
+    transform: translateY(-35px);
     opacity: 20%;
     color: limegreen;
   }
@@ -108,7 +108,7 @@
     color: red;
   }
   100% {
-    transform: translateY(30px);
+    transform: translateY(35px);
     opacity: 20%;
     color: red;
   }
@@ -214,6 +214,7 @@ img {
   min-height: calc(100vh - 60px);
   background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
     url("./img/scratchedcourt.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
   margin-top: 60px;
   padding-top: 0px;
   display: flex;
@@ -279,11 +280,20 @@ img {
   cursor: pointer;
 }
 
+.button-div,
+.button-div-loser {
+  transition: 100ms;
+}
+
 .button-div:hover {
   transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.15);
-  /* border: 1px solid var(--dark-color); */
-  transition: all 200ms;
+  transition-delay: 20ms;
+}
+
+.button-div-winner {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .landing {
@@ -763,13 +773,19 @@ span {
     margin: 0px auto;
     display: block;
     padding: 0;
-    max-width: 50%;
+    min-width: 50%;
     object-fit: contain;
   }
 
-  .button-div .player-picture {
+  .button-div {
     height: 70%;
-    width: auto;
+    width: 80%;
+  }
+
+  .player-name-fall,
+  .player-name-rise {
+    border-width: 0;
+    transition: 0.4s;
   }
 
   .float-container {

@@ -29,7 +29,10 @@ const PlayerReviewer = ({
               {sleeperPlayer.cm_ts_pct}% True Shooting
               <img
                 className="player-picture"
-                src={`/${sleeperPlayer.cm_name.replaceAll(" ", "-")}.png`}
+                src={`playerPics/${sleeperPlayer.cm_name.replaceAll(
+                  " ",
+                  "-"
+                )}.png`}
                 alt={sleeperPlayer.cm_name}
               ></img>
             </div>
@@ -44,7 +47,10 @@ const PlayerReviewer = ({
               {famousPlayer.cm_ts_pct}% True Shooting
               <img
                 className="player-picture"
-                src={`/${famousPlayer.cm_name.replaceAll(" ", "-")}.png`}
+                src={`playerPics/${famousPlayer.cm_name.replaceAll(
+                  " ",
+                  "-"
+                )}.png`}
                 alt={famousPlayer.cm_name}
               ></img>
             </div>
