@@ -773,8 +773,9 @@ span {
     margin: 0px auto;
     display: block;
     padding: 0;
-    min-width: 50%;
+    max-width: 50%;
     object-fit: contain;
+    height: 100px;
   }
 
   .button-div {
