@@ -12,10 +12,10 @@ const updateElo = (r1, r2, winningPlayer) => {
   console.log("Before" + r1 + " " + r2);
 
   // If player A wins
-  if (winningPlayer == 1) {
+  if (winningPlayer === 1) {
     r1 = r1 + K * (1 - p1);
     r2 = r2 + K * (0 - p2);
-  } else if (winningPlayer == 2) {
+  } else if (winningPlayer === 2) {
     r1 = r1 + K * (0 - p1);
     r2 = r2 + K * (1 - p2);
   }
