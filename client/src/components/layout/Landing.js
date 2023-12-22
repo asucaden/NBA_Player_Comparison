@@ -17,7 +17,7 @@ const Landing = () => {
               Rate Players
             </Link>
             <Link to="/Dashboard" className="btn btn-primary">
-              Review Comparisons
+              Generate Tweets
             </Link>
             <a
               href="https://twitter.com/c_swish_stats"
