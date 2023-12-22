@@ -5,11 +5,11 @@ const Landing = () => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">Rank, Discover, Tweet</h1>
+          <h1 className="x-large">Rate, Discover, Tweet</h1>
           <p className="lead">
-            C Swish Stats exists to unearth players whose stats outperform their
-            public perception. Make your mark on public perception by rating
-            players and tell the @cswishstats twitter bot what to tweet out
+            C Swish Stats exists at the intersection of NBA stats and vibes.
+            Leave your mark on public perception by voting on players
+            head-to-head and tell the @cswishstats twitter bot what to tweet out
             next!
           </p>
           <div className="buttons">

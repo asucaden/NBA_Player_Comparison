@@ -8,7 +8,7 @@ import Leaderboard from "./components/leaderboard/Leaderboard";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
-import "./App2.css";
+import "./App.css";
 
 const App = () => {
   return (
