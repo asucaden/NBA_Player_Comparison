@@ -716,14 +716,16 @@ span {
   .landing {
     position: relative;
     background: url("./img/darkshot.jpg") no-repeat center center/cover;
-    margin-top: 90px;
-    padding-top: 20px;
+    margin-top: 100px;
+    padding-top: 80px;
     min-width: 100vw;
+    height: calc(100vh - 100px);
   }
 
   .landing-inner {
-    margin-top: 20px;
-    height: 90%;
+    margin-top: 50px;
+    padding-top: 50px;
+    height: fit-content;
   }
 
   .container-dashboard {
@@ -883,6 +885,7 @@ span {
     flex-direction: column;
     align-items: center;
     height: 140px;
+    line-height: 1.1;
   }
 
   .navbar-ul {
@@ -890,7 +893,7 @@ span {
     width: fit-content;
     flex-direction: column;
     align-items: left;
-    justify-content: space-between;
+    justify-content: space-around;
     line-height: 1.5;
   }
 
