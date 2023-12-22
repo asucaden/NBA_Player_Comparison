@@ -25,7 +25,7 @@ const PlayerRater = ({
       >
         Skip
       </button>
-      {player1.cm_name && (
+      {player1.cm_name ? (
         <>
           <div className="float-container">
             {updated === 0 && (
@@ -150,9 +150,9 @@ const PlayerRater = ({
             )}
           </div>
         </>
+      ) : (
+        <Spinner />
       )}
-
-      {!player1.cm_name && <Spinner />}
     </>
   );
 };

@@ -15,7 +15,7 @@ const PlayerReviewer = ({
 
   return (
     <>
-      {sleeperPlayer.cm_name && (
+      {sleeperPlayer.cm_name ? (
         <>
           <div className="float-container">
             <div className="float-child-left text-center">
@@ -69,8 +69,9 @@ const PlayerReviewer = ({
             twitter bot!
           </p>
         </>
-      )}
-      {!sleeperPlayer.cm_name && <Spinner />}
+      ) : (
+        <Spinner />
+      )}{" "}
     </>
   );
 };

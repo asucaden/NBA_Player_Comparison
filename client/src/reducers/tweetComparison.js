@@ -3,6 +3,11 @@ import {
   TWEET_COMPARISON_SUCCESS,
 } from "../actions/types";
 
+const initialState = {
+  sleeperPlayer: {},
+  famousPlayer: {},
+};
+
 export default function tweetComparison(state = initialState, action) {
   const { type, payload } = action;
 

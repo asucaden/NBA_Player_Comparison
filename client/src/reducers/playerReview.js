@@ -1,4 +1,4 @@
-import { PLAYER_LOAD_SUCCESS, PLAYER_LOAD_FAILURE } from '../actions/types';
+import { PLAYER_LOAD_SUCCESS, PLAYER_LOAD_FAILURE } from "../actions/types";
 
 const initialState = {
   sleeperPlayer: {},

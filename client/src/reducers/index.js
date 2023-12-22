@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import playerReview from "./playerReview";
 import playerRater from "./playerRater";
-import { tweetComparison } from "../actions/tweetComparison";
+import tweetComparison from "./tweetComparison";
 import leaderboard from "./leaderboard";
 
 export default combineReducers({
