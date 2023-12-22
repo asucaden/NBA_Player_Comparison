@@ -24,7 +24,7 @@ app.use("/api/leaderboard", require("./routes/api/leaderboard"));
 app.use(express.static("client/build"));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public"));
+  res.sendFile(path.resolve(__dirname, "client", "public"));
 });
 
 const PORT = process.env.PORT || 5000;
