@@ -727,8 +727,8 @@ span {
   }
 
   .container-dashboard {
-    min-height: calc(100vh - 100px);
-    margin: 100px 0px 0px;
+    min-height: calc(100vh - 90px);
+    margin: 110px 0px 0px;
     padding: 5px 0px 0px 0px;
     display: block;
     justify-content: baseline;
@@ -741,15 +741,18 @@ span {
     position: relative;
     max-width: 100vw;
     min-width: 95vw;
-    min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 270px);
     padding: 3vh 5px 8vh 5px;
     margin-top: 10px;
   }
 
   .float-child-left,
   .float-child-right {
-    max-width: 600px;
-    width: 75%;
+    height: 70%;
+    max-width: 80%;
+    width: fit-content;
+    padding: 15px 20px;
+
     height: auto;
     /* max-height: 35vh; */
     margin: 5px 0px;
@@ -784,7 +787,9 @@ span {
 
   .button-div {
     height: 70%;
-    width: 80%;
+    max-width: 80%;
+    width: fit-content;
+    padding: 15px 40px;
   }
 
   .player-name-fall,
@@ -877,7 +882,7 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 130px;
+    height: 140px;
   }
 
   .navbar-ul {
@@ -885,8 +890,8 @@ span {
     width: fit-content;
     flex-direction: column;
     align-items: left;
-    justify-content: space-around;
-    line-height: 1.3;
+    justify-content: space-between;
+    line-height: 1.5;
   }
 
   .navbar h1 {

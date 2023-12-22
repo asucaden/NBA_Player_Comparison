@@ -7,10 +7,10 @@ const Landing = () => {
         <div className="landing-inner">
           <h1 className="x-large">Rate, Discover, Tweet</h1>
           <p className="lead">
-            C Swish Stats exists at the intersection of NBA stats and vibes.
-            Leave your mark on public perception by voting on players
-            head-to-head and tell the @cswishstats twitter bot what to tweet out
-            next!
+            C Swish Stats exists at the intersection of NBA stats and public
+            perception. Vote for your favorite players in a head-to-head,
+            ELO-based rating system and tell the @cswishstats twitter bot what
+            to tweet out next!
           </p>
           <div className="buttons">
             <Link to="/Rater" className="btn btn-primary">
