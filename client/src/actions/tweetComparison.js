@@ -1,5 +1,4 @@
 import api from "../utils/api";
-import { sleep } from "../utils/sleep";
 import { loadPlayers } from "./playerReview";
 import { TWEET_COMPARISON_FAIL, TWEET_COMPARISON_SUCCESS } from "./types";
 

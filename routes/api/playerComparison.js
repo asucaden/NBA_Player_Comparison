@@ -31,7 +31,6 @@ const STATTOTMAX = 48.8;
 // @desc    Return a potential player pair
 // @access  Public
 router.get("/", async (req, res) => {
-  console.log("Getting pinged");
   var players = [];
   try {
     var famousPlayer = {};
@@ -80,7 +79,6 @@ router.get("/", async (req, res) => {
         }
       }
     }
-    console.log("Took" + i + "tries");
     res.json({
       sleeperPlayer: {
         cm_name: sleeperPlayer.cm_name,

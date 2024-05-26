@@ -18,20 +18,16 @@ const fs = require("fs");
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    console.log("Getting pinged get/");
     let players = await Player.find({});
     let i = Math.floor(Math.random() * players.length);
-    console.log("first player is: ", i);
     const player1 = players[i];
     i = Math.floor(Math.random() * players.length);
     let player2 = players[i];
     while (player1.id === player2.id) {
       i = Math.floor(Math.random() * players.length);
-      console.log("i is", i);
       player2 = players[i];
     }
 
-    console.log("Made it to end of get");
     res.json({
       player1,
       player2,
@@ -57,7 +53,6 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      console.log("Pinging post");
       // ELO update winner and loser's scores accordingly.
       // r1, r2, who won (1 or 2)
       // TODO, you could have 'pending' rankings stored in mongodb and then check if id in response equals one of the pending rankings.
@@ -68,8 +63,6 @@ router.post(
       const playerA = req.body.player1;
       const playerB = req.body.player2;
 
-      console.log(playerA, playerB);
-
       const player1 = await Player.findOne({
         cm_name: { $eq: playerA },
       });
@@ -77,7 +70,6 @@ router.post(
       const player2 = await Player.findOne({
         cm_name: { $eq: playerB },
       });
-      console.log("Right before elo call");
       [player1.cm_fame, player2.cm_fame] = updateElo(
         player1.cm_fame,
         player2.cm_fame,
@@ -86,8 +78,6 @@ router.post(
 
       await player1.save();
       await player2.save();
-
-      console.log("Made it to end of post/");
 
       res.json({ player1, player2 });
     } catch (err) {

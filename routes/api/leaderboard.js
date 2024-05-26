@@ -13,9 +13,7 @@ const { selectFields } = require("express-validator/src/select-fields");
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    console.log("Getting pinged get/");
     let players = await Player.find({});
-    console.log("Got all players");
     const leaderboard = players.map((player) => {
       return {
         cm_name: player.cm_name,
